@@ -1,0 +1,35 @@
+.header-body {
+position: absolute;
+ width:15%;
+ top:0;
+ z-index: 10;
+ padding: 5px;
+ background-color: rgba(0,0,0,0.7);
+ right:0;
+ border-radius: 10px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.header-menus{
+    color: black;
+    text-decoration: none;
+    background-color: yellowgreen;
+    font-size: 20px;
+    font-family: fantasy;
+    margin: 20px;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.header-menus:hover{
+    color:white
+}
+
+.greetingUser{
+    color:white;
+    font-size:20px;
+}

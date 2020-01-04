@@ -1,0 +1,57 @@
+<%- include ('partials/head') %>
+<body>
+
+    <%- include ('partials/header') %>
+    <%- include ('partials/navigation')%>
+    <%if(video){%>
+    <video src=/<%-video.fileUrl%> controls=true></video>
+    <h1><%=video.title%></h1>
+    <h3><%=video.description%></h3>
+    <h3><%=video.createdAt%></h3>
+    <h3><%=video.sharedStatus%></h3>
+
+    
+    <%if(user&&user.id==video.creator){%>
+        <form action=<%=routes.shareSelector(video.id)%> method="post">
+            <input type="submit" id="shareSelector" value="Share or not">
+            </form>
+
+        <a href=<%=routes.deleteVideo(video.id)%>>DELETE</a>
+        <%}%>
+    <%}else if(urlVideo){%>
+
+    <video src=<%-urlVideo.url%> controls=true></video>
+    <h1><%=urlVideo.title%></h1>
+    <h3><%=urlVideo.description%></h3>
+    <h3><%=urlVideo.createdAt%></h3>
+    <h3><%=urlVideo.sharedStatus%></h3>
+    
+    <%if(user&&user.id==urlVideo.creator){%>
+        <form action=<%=routes.shareSelector(urlVideo.id)%> method="post">
+            <input type="submit" id="shareSelector" value="Share or not">
+            </form>
+
+        <a href=<%=routes.deleteVideo(urlVideo.id)%>>DELETE VIDEO</a>
+        <%}%>
+
+    <%}else if(embeddedVideo){%>
+    <%-embeddedVideo.url%>
+    <h1><%=embeddedVideo.title%></h1>
+    <h3><%=embeddedVideo.description%></h3>
+    <h3><%=embeddedVideo.createdAt%></h3>
+    <h3><%=embeddedVideo.sharedStatus%></h3>
+
+    
+    
+    <%if(user&&user.id==embeddedVideo.creator){%>
+        <form action=<%=routes.shareSelector(embeddedVideo.id)%> method="post">
+            <input type="submit" id="shareSelector" value="Share or not">
+            </form>
+
+    <a href=<%=routes.deleteVideo(embeddedVideo.id)%>>DELETE</a>
+    <%}}%>
+    
+    <script src="/vanilla/videoDetail.js"></script>
+    <%- include ('partials/footer')%>
+</body>
+</html>

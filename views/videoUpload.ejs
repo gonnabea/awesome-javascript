@@ -1,0 +1,29 @@
+<%- include ('partials/head') %>
+<body>
+    <%- include ('partials/header') %>
+    <%- include ('partials/navigation')%>
+    
+    <form action=/videos<%=routes.videoUpload%> method="post" enctype="multipart/form-data">
+        <label>Fetch from local</label>
+        <input type="text" name="title" placeholder="TITLE" required=true>
+        <input type="textarea" name="description" placeholder="DESCRIPTION">
+        <input type="file" name="videoFile" required=true>
+        <input type="submit" value="UPLOAD">
+    </form>
+    <form action=/videos<%=routes.urlVideo%> method="post">
+    <label>Fetch from URL</label>
+    <input type="text" name="title" placeholder="TITLE" >
+    <input type="textarea" name="description" placeholder="DESCRIPTION">
+    <input type="url" name="url" placeholder="URL" required=true>
+    <input type="submit" value="UPLOAD FROM URL">
+    </form>
+    <form action=/videos<%=routes.embeddedVideo%> method="post">
+        <label>Fetch from Youtube or etc (For embedded links)</label>
+        <input type="text" name="title" placeholder="TITLE" >
+        <input type="textarea" name="description" placeholder="DESCRIPTION">
+        <input type="textarea" name="url" placeholder="iframe TAG" required=true>
+        <input type="submit" value="UPLOAD FROM URL">
+        </form>
+<%- include ('partials/footer')%>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.toDoList {
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 30px;
+}
+
+.toDoInput {
+    width: 30%;
+    text-align: center;
+    color: blue;
+    border: 0px;
+    font-family: cursive;
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.toDoInput::placeholder {
+    color: black;
+}
+
+.input-container {
+    
+    text-align: center;
+}

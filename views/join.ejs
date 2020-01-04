@@ -1,0 +1,14 @@
+<%- include ('partials/head') %>
+<%- include ('partials/header') %>
+<%- include ('partials/navigation') %>
+
+<form action=<%=routes.join%> method="post">
+    <input type="text" name="name" placeholder="NAME" required=true>
+    <input type="email" name="email" placeholder="EMAIL" required=true>
+    <input type="password" name="password1" placeholder="PASSWORD" required=true>
+    <input type="password" name="password2" placeholder="VERIFY PASSWORD" required=true>
+    <input type="submit" value="JOIN">
+</form>
+
+
+<%- include ('partials/footer')%>

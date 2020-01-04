@@ -1,0 +1,28 @@
+<%- include ('partials/head') %>
+<body>
+    <%- include ('partials/header') %>
+    <%if(user){%>
+    <input type="name" id="username" class="username" placeholder="What's your name?" value=<%=user.name%>>
+    <%}else{%>
+        <input type="name" id="username" class="username" placeholder="What's your name?">
+    <%}%>
+    <%- include ('partials/navigation')%>
+    <div id="name" class="name"></div>
+    <div class="input-container">
+    <input type="text" id="toDoInput" class="toDoInput" placeholder="What are you gonna do today?">
+    </div>
+    
+    <ul id="toDoList" class="toDoList"></ul>
+    <link rel="stylesheet" type="text/css" href="/css/username.css">
+    <link rel="stylesheet" type="text/css" href="/css/toDoList.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/list.css">
+
+    <script src="/vanilla/username.js"></script>
+    <script src="/vanilla/background.js"></script>
+    <script src="/vanilla/toDoList.js"></script>
+    <script src="/vanilla/list.js"></script>
+    <script src="/vanilla/stopWatch.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<%- include ('partials/head') %>
+<body>
+    <%- include ('partials/header') %>
+<%- include ('partials/navigation')%>
+
+<div class="fullscreen-bg">
+    <video id="VideoStorageBG" class="BGvideo" src="/backgrounds\videos\Video - 26537.mp4" loop muted="muted" autoplay></video>
+</div>
+
+<%if(user){%>
+<a href=/videos<%=routes.videoUpload%> class="uploadBtn">UPLOAD</a>
+<%}%>
+
+<h1>Videos from Local</h1>
+<% videos.forEach(function (item){ %>
+    <%if(item.sharedStatus=="shared" || user&&item.creator==user.id){%>
+    <a class="detail-link" href=<%=routes.videoDetail(item.id)%>>
+        <div class="aboutVideo">
+    <video class="myVideo" src= <%= item.fileUrl %> controls=true></video>
+    <h2 class="videoName"><%=item.title%></h2>
+    <h3 class="videoDescription">description: <%=item.description%></h3>
+    <h3 class="createdAt"><%=item.createdAt%></h3>
+    <h3 class="username">Uploaded By <%=item.uploadedBy%></h3>
+    </div>
+    </a>
+    <% }}) %>
+
+<h1>Videos from URLs</h1>
+<% urlVideos.forEach(function (item){%>
+    <%if(item.sharedStatus=="shared" || user&&item.creator==user.id){%>
+    <a class="detail-link" href=<%=routes.videoDetail(item.id)%>>
+        <div class="aboutVideo">
+    <video class="myVideo" src = <%=item.url %>></video>
+    <h2 class="videoName"><%=item.title%></h2>
+    <h3 class="videoDescription">description: <%=item.description%></h3>
+    <h3 class="createdAt"><%=item.createdAt%></h3>
+    <h3 class="username">Uploaded By <%=item.uploadedBy%></h3>
+    </div>
+    </a>
+<%}})%>
+<h1>Videos from Youtube or etc..</h1>
+<% embeddedVideo.forEach(function (item){%>
+    
+    <%if(item.sharedStatus=="shared" || user&&item.creator==user.id){%>
+    
+    <a class="detail-link" href=<%=routes.videoDetail(item.id)%>>
+        <div class="aboutVideo">
+    <%-item.url%>
+        <h2 class="videoName"><%=item.title%></h2>
+        <h3 class="videoDescription">description: <%=item.description%></h3>
+        <h3 class="createdAt"><%=item.createdAt%></h3>
+        <h3 class="username">Uploaded By <%=item.uploadedBy%></h3>
+    </div>
+    </a>
+<%}%>
+<%})%>
+
+<%- include ('partials/footer')%>
+<link rel="stylesheet" type="text/css" href="/css/videoStorage.css">
+    <script src="/vanilla/videoStorage.js"></script>
+    <script src="/vanilla/videoDetail.js"></script>
+</body>
+</html>

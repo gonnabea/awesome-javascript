@@ -1,0 +1,10 @@
+.name{
+    font-size: 50px;
+    position: relative;
+    text-align: center;
+    margin-top:17%;
+    z-index:2;
+    font-family:fantasy;
+    background-color: black;
+    background-color: rgba( 255, 255, 255, 0.5 );
+}

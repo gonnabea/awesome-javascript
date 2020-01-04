@@ -1,0 +1,16 @@
+<%- include ('partials/head') %>
+<%- include ('partials/header') %>
+<%- include ('partials/navigation') %>
+<body>
+<form action=<%=routes.login%> method="post">
+    
+    <input type="email" name="email" placeholder="EMAIL" required=true>
+    <input type="password" name="password" placeholder="PASSWORD" required=true>
+    <input type="submit" value="LOGIN">
+</form>
+
+<a class="googleAuth" href=<%=routes.googleLogin%>><i class="fab fa-google" id="auth-icon"></i> Continue with Google</a>
+
+<link rel="stylesheet" type="text/css" href="/css/login.css">
+</body>
+<%- include ('partials/footer')%>
