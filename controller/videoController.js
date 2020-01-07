@@ -3,6 +3,7 @@ import Video from "../model/video";
 import UrlVideo from "../model/urlVideo";
 import EmbeddedVideo from "../model/embeddedVideo";
 import Comment from "../model/comment";
+import User from "../model/user";
 
 export const videoStorage = async(req, res) => {
     const videos = await Video.find({})
@@ -75,10 +76,17 @@ export const videoDetail = async(req, res) => {
     try {
         const video = await Video.findById(id);
         const urlVideo = await UrlVideo.findById(id);
-        const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment")
-
+        const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy")
+        console.log(embeddedVideo.comment.length)
+        let i=0;
+        let commentsList = [];
+        while(i<embeddedVideo.comment.length){
+        const commentMaker = await User.findById(embeddedVideo.comment[i].createdBy);
+        commentsList.push(commentMaker);
+        i++
+        }
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
-        res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
+        res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo,commentsList})
         }else if(req.user&&video&&video.creator == req.user.id || video&&video.sharedStatus === "shared"){
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
         }else if(req.user&&urlVideo&&urlVideo.creator == req.user.id || urlVideo&&urlVideo.sharedStatus === "shared"){
