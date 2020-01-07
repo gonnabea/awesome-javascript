@@ -47,10 +47,6 @@
         <form action=<%=routes.shareSelector(embeddedVideo.id)%> method="post">
             <input type="submit" id="shareSelector" value="Share or not">
             </form>
-    <%for(i=0; i< commentsList.length; i++){%>
-        <%-commentsList[i].name%> :
-    <%=embeddedVideo.comment[i].contents%>
-    <%}%>
     <a href=<%=routes.deleteVideo(embeddedVideo.id)%>>DELETE VIDEO</a>
     
     <%  }%>
@@ -59,8 +55,8 @@
             <input type="text" name="comment">
             <input type="submit" value="Post!">
         </form>
+        <%}%>
         <h1>Comments</h1>
-<%}%>
 <%for(i=0; i< commentsList.length; i++){%>
         <%-commentsList[i].name%> :
     <%=embeddedVideo.comment[i].contents%>

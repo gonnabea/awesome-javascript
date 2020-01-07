@@ -77,7 +77,6 @@ export const videoDetail = async(req, res) => {
         const video = await Video.findById(id);
         const urlVideo = await UrlVideo.findById(id);
         const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy")
-        console.log(embeddedVideo.comment.length)
         let i=0;
         let commentsList = [];
         while(i<embeddedVideo.comment.length){
@@ -113,9 +112,9 @@ export const postComment = async(req, res) => {
             createdBy: req.user.id,
             contents: comment
         })
-        console.log(newComment)
+        
         embeddedVideo.comment.push(newComment._id)
-        console.log(embeddedVideo);
+        
         embeddedVideo.save();
     }catch(error){
         console.log(error);
