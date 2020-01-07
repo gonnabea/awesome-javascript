@@ -18,7 +18,7 @@ export const postLogin = passport.authenticate('local', {
 })
 
 export const join = (req, res) => {
-    res.render("join", {title:"JOIN"})
+    res.render("join", {title:"JOIN", msg:""})
 }
 
 
@@ -35,15 +35,15 @@ export const postJoin = async(req, res) => {
     email
    });
    const newUser = await User.register(user, password1);
-   res.redirect(routes.home)
+   res.redirect(routes.login)
    console.log(newUser)
 }catch(error){
     console.log(error)
 }
 }else if(password1 !== password2 && password1.length >= 6) {
-    console.log({ msg: 'Passwords do not match'})
+    res.render("join", {title:"JOIN", msg: 'passwords not same'})
 }else if(password1 === password2 && password1.length < 6){
-    console.log({ msg: 'Pssword should be at least 6 characters'})
+    res.render("join", {title:"JOIN", msg: 'password should be at least 6 characters'})
 }
 
 }
