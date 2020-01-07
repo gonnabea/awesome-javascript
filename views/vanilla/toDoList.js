@@ -1,6 +1,7 @@
 const toDoInput = document.getElementById("toDoInput");
 const toDoList = document.getElementById("toDoList");
 const completedList = document.getElementById("completedList");
+const completeTitle = document.getElementById("completeTitle");
 
 let toDoArray = [];
 let completedArray = [];
@@ -28,7 +29,8 @@ const addToDo = (e) => {
     span2.innerHTML = "Completed";
     span2.style.cursor = "pointer";
     span2.style.color = "yellowgreen";
-    span2.addEventListener("click", completedToDo);;
+    span2.addEventListener("click", completedToDo);
+    loadToDo()
     }
 }
 
@@ -42,7 +44,7 @@ const loadToDo = () => {
         const span = document.createElement("span");
         toDoList.appendChild(li);
     li.id = i;
-    li.innerHTML = toDoArray[i]
+    li.innerHTML =`${i+1}. ${toDoArray[i]}`
     li.appendChild(span);
     span.id = li.id;
     span.innerHTML = "X";
@@ -56,7 +58,7 @@ const loadToDo = () => {
     span2.innerHTML = "Completed";
     span2.style.cursor = "pointer";
     span2.style.color = "yellowgreen";
-    span2.addEventListener("click", completedToDo);;
+    span2.addEventListener("click", completedToDo);
     
     }
 }
