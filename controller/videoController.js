@@ -2,6 +2,7 @@ import routes from "../routes";
 import Video from "../model/video";
 import UrlVideo from "../model/urlVideo";
 import EmbeddedVideo from "../model/embeddedVideo";
+import Comment from "../model/comment";
 
 export const videoStorage = async(req, res) => {
     const videos = await Video.find({})
@@ -68,17 +69,14 @@ export const postEmbedded = async(req, res) => {
 export const videoDetail = async(req, res) => {
     const {
         params:{id}
+        
     } = req;
-    console.log(req.params)
+    
     try {
         const video = await Video.findById(id);
         const urlVideo = await UrlVideo.findById(id);
-        const embeddedVideo = await EmbeddedVideo.findById(id)
-        
-        
+        const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment")
 
-        console.log(`localVideo:${video}, urlVideo:${urlVideo}, embeddedVideo:${embeddedVideo}`)
-        
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
         }else if(req.user&&video&&video.creator == req.user.id || video&&video.sharedStatus === "shared"){
@@ -93,6 +91,29 @@ export const videoDetail = async(req, res) => {
         console.log(`HERE!!::${error}`)
         res.redirect(routes.videoStorage);
     }
+}
+
+export const postComment = async(req, res) => {
+    const {
+        params:{id},
+        body: {comment}
+    } = req;
+
+    try{
+        const embeddedVideo = await EmbeddedVideo.findById(id);
+        const newComment = await Comment.create({
+            createdBy: req.user.id,
+            contents: comment
+        })
+        console.log(newComment)
+        embeddedVideo.comment.push(newComment._id)
+        console.log(embeddedVideo);
+        embeddedVideo.save();
+    }catch(error){
+        console.log(error);
+    }
+    res.redirect(routes.videoDetail(id));
+
 }
 
 export const deleteVideo = async(req, res) => {

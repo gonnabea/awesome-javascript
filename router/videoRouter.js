@@ -1,6 +1,6 @@
 import routes from "../routes";
 import express from "express";
-import { videoStorage, uploadVideo, postUploadVideo, postUrlVideo, postEmbedded, videoDetail, deleteVideo, shareSelector } from "../controller/videoController";
+import { videoStorage, uploadVideo, postUploadVideo, postUrlVideo, postEmbedded, videoDetail, deleteVideo, shareSelector, postComment } from "../controller/videoController";
 import { multerUpload } from "../middleware";
 
 const videoRouter = express.Router();
@@ -15,6 +15,7 @@ videoRouter.post(routes.urlVideo, postUrlVideo);
 videoRouter.post(routes.embeddedVideo, postEmbedded);
 
 videoRouter.get(routes.videoDetail(), videoDetail);
+videoRouter.post(routes.videoComments(), postComment);
 
 videoRouter.get(routes.deleteVideo(), deleteVideo);
 

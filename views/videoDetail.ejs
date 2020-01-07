@@ -11,6 +11,8 @@
     <h3><%=video.sharedStatus%></h3>
 
     
+
+    
     <%if(user&&user.id==video.creator){%>
         <form action=<%=routes.shareSelector(video.id)%> method="post">
             <input type="submit" id="shareSelector" value="Share or not">
@@ -41,15 +43,21 @@
     <h3><%=embeddedVideo.createdAt%></h3>
     <h3><%=embeddedVideo.sharedStatus%></h3>
 
-    
-    
     <%if(user&&user.id==embeddedVideo.creator){%>
         <form action=<%=routes.shareSelector(embeddedVideo.id)%> method="post">
             <input type="submit" id="shareSelector" value="Share or not">
             </form>
 
-    <a href=<%=routes.deleteVideo(embeddedVideo.id)%>>DELETE</a>
-    <%}}%>
+    <a href=<%=routes.deleteVideo(embeddedVideo.id)%>>DELETE VIDEO</a>
+    <form action=<%=routes.videoComments(embeddedVideo.id)%> method="post">
+        <input type="text" name="comment">
+        <input type="submit" value="Post!">
+    </form>
+    <h1>Comments</h1>
+    <%embeddedVideo.comment.forEach(function(item){%>
+    
+    <h2><%=item.contents%></h2>
+    <%})}}%>
     
     <script src="/vanilla/videoDetail.js"></script>
     <%- include ('partials/footer')%>

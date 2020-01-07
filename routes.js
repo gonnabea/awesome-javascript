@@ -7,6 +7,7 @@ const EMBEDDEDVIDEO = "/embedded-video";
 const VIDEO_DETAIL = "/:id";
 const DELETE_VIDEO = "/:id/delete-video";
 const SHARE_SELECTOR = "/:id/share-selector";
+const VIDEO_COMMENTS = "/:id/video-comment";
 
 const LOGIN = "/login";
 const LOGOUT = "/logout";
@@ -46,6 +47,13 @@ const routes = {
             return `/videos/${id}/share-selector`
         }else{
             return SHARE_SELECTOR
+        }
+    },
+    videoComments: (id) => {
+        if(id){
+            return `/videos/${id}/video-comment`
+        }else{
+            return VIDEO_COMMENTS
         }
     },
 
