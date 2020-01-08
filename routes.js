@@ -8,6 +8,7 @@ const VIDEO_DETAIL = "/:id";
 const DELETE_VIDEO = "/:id/delete-video";
 const SHARE_SELECTOR = "/:id/share-selector";
 const VIDEO_COMMENTS = "/:id/video-comment";
+const DELEtE_VIDEO_COMMENT = "/:id/delete-video-comment";
 
 const LOGIN = "/login";
 const LOGOUT = "/logout";
@@ -54,6 +55,13 @@ const routes = {
             return `/videos/${id}/video-comment`
         }else{
             return VIDEO_COMMENTS
+        }
+    },
+    deleteVideoComment: (id) => {
+        if(id){
+            return `/videos/${id}/delete-video-comment`
+        }else{
+            return DELEtE_VIDEO_COMMENT
         }
     },
 

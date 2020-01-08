@@ -123,6 +123,21 @@ export const postComment = async(req, res) => {
 
 }
 
+export const deleteComment = async(req, res) => {
+    const {
+        params: {id}
+    } = req;
+    try{
+        console.log(id)
+        await Comment.findByIdAndRemove({_id:id})
+        
+        
+    }catch(error){
+        console.log(error);
+    }
+    res.redirect(routes.videoStorage);
+}
+
 export const deleteVideo = async(req, res) => {
     const {
         params: {id}

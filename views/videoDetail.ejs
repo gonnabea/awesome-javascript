@@ -52,7 +52,7 @@
     <%  }%>
     <%if(user){%>
         <form action=<%=routes.videoComments(embeddedVideo.id)%> method="post">
-            <input type="text" name="comment">
+            <input type="text" name="comment" required=true>
             <input type="submit" value="Post!">
         </form>
         <%}%>
@@ -61,6 +61,10 @@
         <%-commentsList[i].name%> :
     <%=embeddedVideo.comment[i].contents%>
     <%=embeddedVideo.comment[i].createdAt%>
+    <form action=<%=routes.deleteVideoComment(embeddedVideo.comment[i]._id)%> method ="post">
+        
+        <input type="submit" value="X">
+    </form>
 <%}}%>
     
     <script src="/vanilla/videoDetail.js"></script>
