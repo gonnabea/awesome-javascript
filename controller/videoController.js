@@ -128,14 +128,17 @@ export const deleteComment = async(req, res) => {
         params: {id}
     } = req;
     try{
-        console.log(id)
-        await Comment.findByIdAndRemove({_id:id})
+        console.log(req.params)
+        const comment = await Comment.findById(id);
         
-        
+        if(comment.createdBy == req.user.id){
+            await Comment.findByIdAndRemove({_id:id})
+        }
+
     }catch(error){
         console.log(error);
     }
-    res.redirect(routes.videoStorage);
+    res.redirect(routes.videoStorage) 
 }
 
 export const deleteVideo = async(req, res) => {

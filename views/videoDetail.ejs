@@ -61,10 +61,11 @@
         <%-commentsList[i].name%> :
     <%=embeddedVideo.comment[i].contents%>
     <%=embeddedVideo.comment[i].createdAt%>
+    <%if(user&&user.id==embeddedVideo.comment[i].createdBy){%>
     <form action=<%=routes.deleteVideoComment(embeddedVideo.comment[i]._id)%> method ="post">
-        
         <input type="submit" value="X">
     </form>
+    <%}%>
 <%}}%>
     
     <script src="/vanilla/videoDetail.js"></script>
