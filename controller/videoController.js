@@ -128,18 +128,15 @@ export const deleteComment = async(req, res) => {
         params: {id}
     } = req;
     try{
-        console.log(req.params)
         const comment = await Comment.findById(id);
         comment.populate("embeddedVideo")
-        console.log(comment)
         if(comment.createdBy == req.user.id){
             await Comment.findByIdAndRemove({_id:id})
         }
-
     }catch(error){
         console.log(error);
     }
-    res.redirect(routes.videoStorage) 
+    res.redirect("back")
 }
 
 export const deleteVideo = async(req, res) => {
