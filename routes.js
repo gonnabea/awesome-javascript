@@ -6,9 +6,8 @@ const URL_VIDEO = "/urlVideo";
 const EMBEDDEDVIDEO = "/embedded-video";
 const VIDEO_DETAIL = "/:id";
 const DELETE_VIDEO = "/:id/delete-video";
-const SHARE_SELECTOR = "/:id/share-selector";
-const VIDEO_COMMENTS = "/:id/video-comment";
-const DELEtE_VIDEO_COMMENT = "/:id/delete-video-comment";
+
+
 
 const LOGIN = "/login";
 const LOGOUT = "/logout";
@@ -21,6 +20,13 @@ const JOIN = "/join";
 const FORUM = "/forum";
 const CALCULATOR = "/calculator";
 const STOPWATCH = "/stop-watch";
+
+// API
+
+
+const VIDEO_COMMENTS = "/:id/video-comment";
+const DELEtE_VIDEO_COMMENT = "/:id/delete-video-comment";
+const SHARE_SELECTOR = "/:id/share-selector";
 
 const routes = {
     home: HOME,

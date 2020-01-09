@@ -130,7 +130,8 @@ export const deleteComment = async(req, res) => {
     try{
         console.log(req.params)
         const comment = await Comment.findById(id);
-        
+        comment.populate("embeddedVideo")
+        console.log(comment)
         if(comment.createdBy == req.user.id){
             await Comment.findByIdAndRemove({_id:id})
         }

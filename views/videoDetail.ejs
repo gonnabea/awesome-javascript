@@ -41,12 +41,12 @@
     <h1><%=embeddedVideo.title%></h1>
     <h3><%=embeddedVideo.description%></h3>
     <h3><%=embeddedVideo.createdAt%></h3>
-    <h3><%=embeddedVideo.sharedStatus%></h3>
+    <h3 id="sharedStatus"><%=embeddedVideo.sharedStatus%></h3>
 
     <%if(user&&user.id==embeddedVideo.creator){%>
-        <form action=<%=routes.shareSelector(embeddedVideo.id)%> method="post">
-            <input type="submit" id="shareSelector" value="Share or not">
-            </form>
+        
+            <input type="button" id="shareSelector" value="Share or not">
+            
     <a href=<%=routes.deleteVideo(embeddedVideo.id)%>>DELETE VIDEO</a>
     
     <%  }%>
@@ -58,13 +58,14 @@
         <%}%>
         <h1>Comments</h1>
 <%for(i=0; i< commentsList.length; i++){%>
-        <%-commentsList[i].name%> :
+        <div><%-commentsList[i].name%> :
     <%=embeddedVideo.comment[i].contents%>
     <%=embeddedVideo.comment[i].createdAt%>
     <%if(user&&user.id==embeddedVideo.comment[i].createdBy){%>
     <form action=<%=routes.deleteVideoComment(embeddedVideo.comment[i]._id)%> method ="post">
         <input type="submit" value="X">
     </form>
+</div>
     <%}%>
 <%}}%>
     
