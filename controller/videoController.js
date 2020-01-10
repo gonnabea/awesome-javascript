@@ -85,6 +85,8 @@ export const videoDetail = async(req, res) => {
         i++
         }
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
+            embeddedVideo.comment.reverse()
+        embeddedVideo.save();
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo,commentsList})
         }else if(req.user&&video&&video.creator == req.user.id || video&&video.sharedStatus === "shared"){
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
@@ -114,7 +116,6 @@ export const postComment = async(req, res) => {
         })
         
         embeddedVideo.comment.push(newComment._id)
-        
         embeddedVideo.save();
     }catch(error){
         console.log(error);
