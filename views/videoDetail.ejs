@@ -51,8 +51,8 @@
     
     <%  }%>
     <%if(user){%>
-        <form action=<%=routes.videoComments(embeddedVideo.id)%> method="post">
-            <input type="text" name="comment" required=true>
+        <form id="postComment" action=<%=routes.videoComments(embeddedVideo.id)%> method="post">
+            <input id="contentsOfComment"type="text" name="comment" required=true>
             <input type="submit" value="Post!">
         </form>
         <%}%>
@@ -66,10 +66,18 @@
         <input type="submit" value="X">
     </form>
 </div>
-    <%}%>
-<%}}%>
+<%}%>
+<%}%>
+<div>
+    <span id="commentAuthor"></span>
+    <span id="commentContents"></span>
+    <span id="commentCreatedAt"></span>
+</div>
+
+<%}%>
     
     <script src="/vanilla/videoDetail.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <%- include ('partials/footer')%>
 </body>
 </html>
