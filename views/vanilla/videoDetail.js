@@ -5,9 +5,7 @@ const sharedStatus = document.getElementById("sharedStatus");
 const postComment = document.getElementById("postComment");
 const contents = document.getElementById("contentsOfComment");
 const newComment = document.getElementById("newComment");
-const commentAuthor = document.getElementById("commentAuthor");
-const commentContents = document.getElementById("commentContents");
-const commentCreatedAt = document.getElementById("commentCreatedAt");
+const newCommentList = document.getElementById("newCommentList");
    
 
 const videoId = window.location.href.split("/videos/")[1];
@@ -24,11 +22,17 @@ const changeShareStatus = () => {
 const handleCommentSubmit = async(e) => {
     e.preventDefault();
     const commentValue = await contents.value;
-    const span = document.createElement("span");
-    commentAuthor.innerHTML = "You : "
-    commentContents.innerHTML = commentValue;
-    commentCreatedAt.innerHTML = new Date();
-
+    const span1 = document.createElement("span");
+    const span2 = document.createElement("span");
+    const span3 = document.createElement("span");
+    const div = document.createElement("div")
+    span1.innerHTML = "You : "
+    span2.innerHTML = commentValue;
+    span3.innerHTML = new Date();
+    div.appendChild(span1)
+    div.appendChild(span2)
+    div.appendChild(span3)
+    newCommentList.appendChild(div);
     handleAddedComment(commentValue)
 }
 

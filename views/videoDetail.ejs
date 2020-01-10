@@ -57,6 +57,9 @@
         </form>
         <%}%>
         <h1>Comments</h1>
+        <div id="newCommentList">
+        
+        </div>
 <%for(i=0; i< commentsList.length; i++){%>
         <div><%-commentsList[i].name%> :
     <%=embeddedVideo.comment[i].contents%>
@@ -68,11 +71,6 @@
 </div>
 <%}%>
 <%}%>
-<div>
-    <span id="commentAuthor"></span>
-    <span id="commentContents"></span>
-    <span id="commentCreatedAt"></span>
-</div>
 
 <%}%>
     
