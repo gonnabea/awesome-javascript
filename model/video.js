@@ -20,7 +20,11 @@ const videoSchema = new mongoose.Schema({
     sharedStatus: {
         type: String,
         default:"not shared"
-    }
+    },
+    comment: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Comment"
+    }]
 })
 
 const model = mongoose.model('Video', videoSchema);

@@ -49,14 +49,14 @@ const handleAddedComment = async(commentValue) => {
     div.appendChild(span2)
     div.appendChild(span3)
     newCommentList.appendChild(div);
-    //const commentId = e.target.action.split(/videos/)[1].split(/video-comment/)[0];
-    //const form = document.createElement("form");
-    //form.className = "deleteVideoComment";
-    //form.method="post";
-    //form.action=`/videos${commentId}delete-video-comment`;
-    //form.innerHTML = '<input type="submit" value="X">';
-    //div.appendChild(form);
-    //form.addEventListener("submit", handleDeleteSubmit);
+    /*const commentId = e.target.action.split(/videos/)[1].split(/video-comment/)[0];
+    const form = document.createElement("form");
+    form.className = "deleteVideoComment";
+    form.method="post";
+    form.action=`/videos${commentId}delete-video-comment`;
+    form.innerHTML = '<input type="submit" value="X">';
+    div.appendChild(form);
+    form.addEventListener("submit", handleDeleteSubmit);*/
     
 }
 

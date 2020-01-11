@@ -74,22 +74,30 @@ export const videoDetail = async(req, res) => {
     } = req;
     
     try {
-        const video = await Video.findById(id);
+        const video = await Video.findById(id).populate("comment");
         const urlVideo = await UrlVideo.findById(id);
         const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy")
-        let i=0;
-        let commentsList = [];
-        while(i<embeddedVideo.comment.length){
-        const commentMaker = await User.findById(embeddedVideo.comment[i].createdBy);
-        commentsList.push(commentMaker);
-        i++
-        }
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
+            let i=0;
+            let commentsList = [];
+            while(i<embeddedVideo.comment.length){
+            const commentMaker = await User.findById(embeddedVideo.comment[i].createdBy);
+            commentsList.push(commentMaker);
+            i++
+            }
             embeddedVideo.comment.reverse()
         embeddedVideo.save();
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo,commentsList})
         }else if(req.user&&video&&video.creator == req.user.id || video&&video.sharedStatus === "shared"){
-        res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
+            let i=0;
+            let commentsList = [];
+            while(i<video.comment.length){
+            const commentMaker = await User.findById(video.comment[i].createdBy);
+            commentsList.push(commentMaker);
+            i++
+            }
+            video.comment.reverse()
+        res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo,commentsList})
         }else if(req.user&&urlVideo&&urlVideo.creator == req.user.id || urlVideo&&urlVideo.sharedStatus === "shared"){
             res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
         }
@@ -110,13 +118,24 @@ export const postComment = async(req, res) => {
 
     try{
         const embeddedVideo = await EmbeddedVideo.findById(id);
+        const video = await Video.findById(id);
+        const urlVideo = await UrlVideo.findById(id);
+
         const newComment = await Comment.create({
             createdBy: req.user.id,
             contents: comment
         })
         
+        if(embeddedVideo){
+            console.log(embeddedVideo)
         embeddedVideo.comment.push(newComment._id)
         embeddedVideo.save();
+        }
+        else if(video){
+            console.log(video)
+        video.comment.push(newComment._id);
+        video.save();
+        }
     }catch(error){
         console.log(error);
     }
