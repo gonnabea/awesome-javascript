@@ -1,3 +1,8 @@
+.videos_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .uploadBtn{
     text-decoration: none;
     border : 1px solid blue;
@@ -12,9 +17,14 @@
 }
 
 .myVideo{
-    width: 600px;
-    align-items: center;
-    margin-left: 33%;
+    width: 50%;
+    
+}
+.embedVideo{
+    display:flex;
+    justify-content: center;
+    
+    
 }
 
 body{
@@ -43,18 +53,19 @@ body{
 }
 
 .detail-link{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: white;
-    
+    width:100%;
 }
 .detail-link:hover{
-    color:yellowgreen
+    color:yellowgreen;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .aboutVideo:hover{
-    background-color: rgba(0, 0, 0, 0.7);
     color:yellowgreen
 }
 
-.aboutVideo{
-    
-}
