@@ -23,8 +23,13 @@
 .embedVideo{
     display:flex;
     justify-content: center;
-    
-    
+    width: 50%;
+    height: 500px;
+}
+
+.embedVideo *{
+    width: 100%;
+    height: 100%;
 }
 
 body{

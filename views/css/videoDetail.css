@@ -1,0 +1,61 @@
+
+body{
+    margin:0;
+    padding: 0;
+    background-image: url(/backgrounds/image/pngfuel.com.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.video{
+    width: 70%;
+}
+.video_container {
+    display: flex;
+    justify-content: center;
+}
+
+.embed_video{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 500px;
+    
+}
+
+.embed_video *{
+    width: 100%;
+    height: 100%;
+}
+
+.embed_video_cover {
+    display: flex;
+    justify-content: center;
+}
+
+.delete_video_btn{
+    text-decoration: none;
+    color: yellowgreen;
+}
+
+.video_infos {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.623);
+    border-radius: 30px;
+    width:70%;
+    color:white;
+}
+
+.video_infos_container {
+    display: flex;
+    justify-content: center; 
+}
+
+.shared_btn {
+    background-color: black;
+    color:yellowgreen;
+    border-radius: 20px;
+}

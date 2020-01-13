@@ -26,6 +26,7 @@ const changeShareStatus = () => {
 const handleCommentSubmit = async(e) => {
     e.preventDefault();
     const commentValue = await contents.value;
+    contents.value="";
     handleAddedComment(commentValue);
 }
 

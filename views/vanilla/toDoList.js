@@ -52,7 +52,7 @@ const loadToDo = () => {
     span.style.color = "red";
     span.addEventListener("click", deleteToDo);
 
-        const span2 = document.createElement("span");
+    const span2 = document.createElement("span");
     li.appendChild(span2);
     span2.id = li.id;
     span2.innerHTML = "Completed";

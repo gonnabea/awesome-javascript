@@ -29,13 +29,13 @@
 <% urlVideos.forEach(function (item){%>
     <%if(item.sharedStatus=="shared" || user&&item.creator==user.id){%>
     <a class="detail-link" href=<%=routes.videoDetail(item.id)%>>
-        <div class="aboutVideo">
+        
     <video class="myVideo" src = <%=item.url %>></video>
     <h2 class="videoName"><%=item.title%></h2>
     <h3 class="videoDescription"><%=item.description%></h3>
     <h3 class="createdAt"><%=item.createdAt%></h3>
     <h3 class="username">Uploaded By <%=item.uploadedBy%></h3>
-    </div>
+    
     </a>
 <%}})%>
 <h1>Videos from Youtube or etc..</h1>
