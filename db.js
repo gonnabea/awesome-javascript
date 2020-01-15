@@ -16,7 +16,7 @@ const handleOpen = () => {
     console.log("Connected to DB")
 }
 
-const handleError = () => {
+const handleError = (error) => {
     console.log(`Error on DB Connection:${error}`)
 }
 
