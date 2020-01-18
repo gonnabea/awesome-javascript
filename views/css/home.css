@@ -8,6 +8,7 @@ body{
     color: white
 }
 
-.toDoInput:focus{
-    border: solid 4px rgba(2, 221, 250, 0.2)
+
+.completeTitle{
+    color:white;
 }

@@ -1,17 +1,27 @@
 <%- include ('partials/head') %>
 <%- include ('partials/header') %>
 <%- include ('partials/navigation') %>
+<body>
+<link rel="stylesheet" href="./css/join.css">
 
-<form action=<%=routes.join%> method="post">
-    <input type="text" name="name" placeholder="NAME" required=true>
-    <input type="email" name="email" placeholder="EMAIL" required=true>
-    <input type="password" name="password1" placeholder="PASSWORD" required=true>
-    <input type="password" name="password2" placeholder="VERIFY PASSWORD" required=true>
-    <%if(msg){%>
-    <h3><%=msg%></h3>
-    <%}%>
-    <input type="submit" value="JOIN">
-</form>
+<section class="form-container">
+    <form class="join-form" action=<%=routes.join%> method="post">
+        <input type="text" name="name" placeholder="NAME" required=true>
+        <input type="email" name="email" placeholder="EMAIL" required=true>
+        <input type="password" name="password1" placeholder="PASSWORD" required=true>
+        <input type="password" name="password2" placeholder="VERIFY PASSWORD" required=true>
+        <%if(msg){%>
+        <h3><%=msg%></h3>
+        <%}%>
+        <input type="submit" class="submit" value="JOIN">
+    </form>
+    <span class="or">OR</span>
+    <div class="social-login">
+        <a class="googleAuth" href=<%=routes.googleLogin%>><i class="fab fa-google" id="auth-icon"></i> Continue with Google</a>
 
+    </div>
+</section>
+
+</body>
 
 <%- include ('partials/footer')%>
