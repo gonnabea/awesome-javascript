@@ -168,12 +168,12 @@ export const deleteVideo = async(req, res) => {
         const urlVideo = await UrlVideo.findById(id);
         const embeddedVideo = await EmbeddedVideo.findById(id);
         
-        console.log(video)
+        
         console.log(req.user.id)
 
         if(embeddedVideo&&req.user&&embeddedVideo.creator == req.user.id){
         await EmbeddedVideo.findByIdAndRemove(id)
-        }else if(videoDetail&&req.user&&video.creator == req.user.id){
+        }else if(video&&req.user&&video.creator == req.user.id){
             await Video.findByIdAndRemove(id)
         }else if(urlVideo&&req.user&&urlVideo.creator == req.user.id){
             await UrlVideo.findByIdAndRemove(id)
