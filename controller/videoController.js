@@ -75,7 +75,7 @@ export const videoDetail = async(req, res) => {
     
     try {
         const video = await Video.findById(id).populate("comment");
-        const urlVideo = await UrlVideo.findById(id);
+        const urlVideo = await UrlVideo.findById(id).populate("comment");
         const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy")
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
             let i=0;
@@ -99,6 +99,13 @@ export const videoDetail = async(req, res) => {
             video.comment.reverse()
         res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo,commentsList})
         }else if(req.user&&urlVideo&&urlVideo.creator == req.user.id || urlVideo&&urlVideo.sharedStatus === "shared"){
+            let i=0;
+            let commentsList = [];
+            while(i<urlVideo.comment.length){
+            const commentMaker = await User.findById(urlVideo.comment[i].createdBy);
+            commentsList.push(commentMaker);
+            i++;}
+            urlVideo.comment.reverse()
             res.render("videoDetail", {title:"VIDEO-DETAIL", embeddedVideo,video,urlVideo})
         }
         else{
@@ -135,6 +142,10 @@ export const postComment = async(req, res) => {
             console.log(video)
         video.comment.push(newComment._id);
         video.save();
+        } else if(urlVideo){
+            console.log(urlVideo)
+            urlVideo.comment.push(newComment._id);
+            urlVideo.save();
         }
     }catch(error){
         console.log(error);

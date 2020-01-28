@@ -59,6 +59,21 @@
                 
                 <a class="delete_video_btn" href=<%=routes.deleteVideo(urlVideo.id)%>>DELETE VIDEO</a>
                 <%}%>
+                <h2>Comments</h2>
+        <%if(user){%>
+            <form action=<%=routes.videoComments(urlVideo.id)%> method="post">
+                <input type="text" name="comment" placeholder="Comment here!">
+                <input type="submit" value="POST!">
+            </form>
+            <%}%>
+            
+            <%for(i=0 ; i < urlVideo.comment.length ; i++){%>
+            
+            <div>
+            <%=urlVideo.comment[i].contents%>
+            <%=urlVideo.comment[i].createdAt%>
+            </div>
+            <%}%>
             </div>
         </div>
 

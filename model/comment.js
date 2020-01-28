@@ -13,6 +13,10 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Video"
     },
+    urlVideo: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UrlVideo"
+    },
     contents: String,
     createdAt: {
         type: Date,
