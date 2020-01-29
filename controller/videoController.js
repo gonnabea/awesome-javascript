@@ -76,7 +76,8 @@ export const videoDetail = async(req, res) => {
     try {
         const video = await Video.findById(id).populate("comment");
         const urlVideo = await UrlVideo.findById(id).populate("comment");
-        const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy")
+        const embeddedVideo = await EmbeddedVideo.findById(id).populate("comment").populate("createdBy");
+        console.log(video)
         if(req.user&&embeddedVideo&&embeddedVideo.creator == req.user.id || embeddedVideo&&embeddedVideo.sharedStatus === "shared"){
             let i=0;
             let commentsList = [];
