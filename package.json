@@ -31,5 +31,13 @@
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
     "uuid": "^3.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonnabea/awesome-javascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gonnabea/awesome-javascript/issues"
+  },
+  "homepage": "https://github.com/gonnabea/awesome-javascript#readme"
 }

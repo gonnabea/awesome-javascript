@@ -6,6 +6,6 @@ export const forum = (req, res) => {
     res.render("forum", {title: "BULLETIN BOARD"})
 }
 
-export const calculator = (req, res) => {
-    res.render("calculator", {title: "CALCULATOR"})
+export const calculater = (req, res) => {
+    res.render("calculater", {title: "CALCULATER"})
 }

@@ -1,0 +1,55 @@
+<%- include ('partials/head') %>
+<body>
+    <%- include ('partials/header') %>
+<%- include ('partials/navigation')%>
+<%- include ('partials/footer')%>
+
+
+    <div class="calculater">
+      <section class="screen">
+        <span id="notice" class="notice"></span>
+        <span id="result" class="result"></span>
+      </section>
+      <section class="buttonArea">
+        <ul id="numbersInput" class="numbersInput">
+          <div class="divideNums">
+            <button id="num1" class="num">1</button>
+            <button id="num2" class="num">2</button>
+            <button id="num3" class="num">3</button>
+          </div>
+          <div class="divideNums">
+            <button id="num4" class="num">4</button>
+            <button id="num5" class="num">5</button>
+            <button id="num6" class="num">6</button>
+          </div>
+          <div class="divideNums">
+            <button id="num7" class="num">7</button>
+            <button id="num8" class="num">8</button>
+            <button id="num9" class="num">9</button>
+          </div>
+          <div class="divideNums0">
+            <button id="num0">0</button>
+          </div>
+        </ul>
+        <ul id="forCalculation" class="forCalculation">
+          <div class="divideCal1">
+            <button id="cancel" class="calculBtn">C</button>
+            <button id="+" class="calculBtn">+</button>
+          </div>
+          <div class="divideCal2">
+            <button id="-" class="calculBtn">-</button>
+            <button id="*" class="calculBtn">X</button>
+          </div>
+          <div class="divideCal3">
+            <button id="/" class="calculBtn">/</button>
+            <button id="=" class="calculBtn">=</button>
+          </div>
+        </ul>
+      </section>
+    </div>
+    <script src="/vanilla/calculater.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/calculater.css">
+</html>
+
+</body>
+</html>
