@@ -1,7 +1,7 @@
 # awesome-javascript
  Made with : HTML (.ejs) & CSS & Vanilla-js & Node.js
 
-자바스크립트 개인 풀스택 프로젝트입니다.
+자바스크립트 개인 풀스택 토이프로젝트입니다.
 
 1. 메인화면: HTML&CSS, Vanilla-js를 이용하여 투두리스트를 만들었습니다.
 크롬의 확장프로그램인 "momentum"을 참고하여 만들었습니다.
