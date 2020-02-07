@@ -1,5 +1,5 @@
 # awesome-javascript
- Made by : HTML (.ejs) & CSS & Vanilla-js & Node.js
+ Made  : HTML (.ejs) & CSS & Vanilla-js & Node.js
 
 자바스크립트 개인 풀스택 프로젝트입니다.
 
