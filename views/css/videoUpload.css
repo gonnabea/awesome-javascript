@@ -1,0 +1,41 @@
+body{
+    background-color: grey;
+    height:100vh;
+}
+
+.submit_area{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 100%;
+}
+
+.input_title{
+    border:solid orange 2px;
+
+}
+
+:hover.input_title{
+    background-color: blanchedalmond;
+    
+}
+        @keyframes showImage {
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        };
+    
+        @keyframes hideImage {
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        };
+

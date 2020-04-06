@@ -12,7 +12,7 @@ passport.use(User.createStrategy());
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: `http://localhost:4000${routes.googleCallback}`
+    callbackURL: `http://localhost:5000${routes.googleCallback}`
 },googleLoginCallback
 ))
 
